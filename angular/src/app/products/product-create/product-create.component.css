@@ -1,0 +1,14 @@
+form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+button {
+    margin-left: 10px;
+}
+
+.quantity-form {
+    margin-left: 10px;
+    max-width: 60px;
+}

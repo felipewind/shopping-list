@@ -1,0 +1,25 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="90%">
+        <mat-toolbar color="primary">Create account</mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="signUpForm"
+            (ngSubmit)="signup()">
+            <mat-form-field>
+                <input matInput formControlName="userName" #userNameInput placeholder="User name" maxlength="20">
+                <mat-error *ngIf="signUpForm.get('userName')?.invalid">{{getErrorMessage('userName')}}</mat-error>
+                <mat-hint align="end">{{userNameInput.value?.length || 0}}/20</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput formControlName="password" #passwordInput type="password" placeholder="Password" maxlength="20">
+                <mat-error *ngIf="signUpForm.get('password')?.invalid">{{getErrorMessage('password')}}</mat-error>
+                <mat-hint align="end">{{passwordInput.value?.length || 0}}/20</mat-hint>
+            </mat-form-field>
+
+            <button [disabled]="signUpForm.invalid || signUpForm.pending" mat-raised-button type="submit" color="primary">Create account</button>
+        </form>
+        <div class="login-form" fxLayoutAlign="stretch" fxLayout="column">
+            <mat-toolbar color="accent" class="login-toolbar">Already have an account? </mat-toolbar>
+            <button mat-raised-button color="primary" routerLink="">Login</button>
+        </div>
+    </mat-card>
+</div>

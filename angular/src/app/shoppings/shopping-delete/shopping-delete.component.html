@@ -1,0 +1,25 @@
+<mat-card>
+    <mat-card-title>
+        Apagar <span class="shopping-name">{{shoppingName | titlecase}}</span>
+    </mat-card-title>
+
+    <mat-card-content>
+        <br>
+        <p>
+            Tem certeza que quer apagar esta lista de compras?            
+        </p>
+        <br>
+    </mat-card-content>
+    
+    <mat-card-actions>
+        <button mat-raised-button (click)="delete()" color="warn">
+            Apagar
+        </button>
+
+        <button mat-raised-button (click)="cancel()">
+            Cancelar
+        </button>
+
+    </mat-card-actions>
+
+</mat-card>

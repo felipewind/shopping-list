@@ -1,0 +1,40 @@
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { UserAuth } from '../user/user-auth';
+import { UserAuthService } from '../user/user-auth.service';
+import { DeviceService } from '../../shared/device.service';
+
+@Component({
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
+})
+export class HeaderComponentCopy implements OnInit, OnDestroy {
+
+  deviceXs: boolean = false;
+
+  user$: Observable<UserAuth | null>;
+
+  constructor(
+    private deviceService: DeviceService,
+    private userAuthService: UserAuthService,
+    private router: Router) {
+    deviceService.getDeviceXs().subscribe(deviceXs => {
+      this.deviceXs = deviceXs;
+    });
+    this.user$ = userAuthService.getUser();
+  }
+
+  ngOnInit(): void {
+  }
+
+  ngOnDestroy(): void {
+  }
+
+  logout(): void {
+    this.userAuthService.logout();
+    this.router.navigate(['']);
+  }
+
+}

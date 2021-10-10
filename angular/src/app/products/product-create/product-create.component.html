@@ -1,0 +1,20 @@
+<mat-card>    
+    <form [formGroup]="createProductForm" #formDirective="ngForm" (ngSubmit)="addProduct(formDirective)">
+        <mat-form-field>
+            <input matInput formControlName="productName" placeholder="New product to list" type="text" maxlength="30"
+                #productNameInput autocomplete="off">
+            <mat-error *ngIf="createProductForm.get('productName')?.invalid">{{getErrorMessage('productName')}}
+            </mat-error>
+            <mat-hint align="end">{{productNameInput.value?.length || 0}}/30</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field class="quantity-form">
+            <input matInput formControlName="quantity" type="number"
+                onKeyPress="if(this.value.length==5) return false;">
+        </mat-form-field>
+
+        <button [disabled]="createProductForm.invalid" mat-icon-button color="primary" type="sumbit">
+            <mat-icon>add_shopping_cart</mat-icon>
+        </button>
+    </form>
+</mat-card>

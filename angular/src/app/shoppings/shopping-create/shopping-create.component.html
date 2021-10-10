@@ -1,0 +1,15 @@
+<mat-card>    
+    <form [formGroup]="createShoppingForm" #formDirective="ngForm" (ngSubmit)="addShopping()">
+        <mat-form-field>
+            <input matInput formControlName="shoppingName" placeholder="Shopping list name" type="text" maxlength="30"
+                #shoppingNameInput autocomplete="off">
+            <mat-error *ngIf="createShoppingForm.get('shoppingName')?.invalid">{{getErrorMessage('shoppingName')}}
+            </mat-error>
+            <mat-hint align="end">{{shoppingNameInput.value?.length || 0}}/30</mat-hint>
+        </mat-form-field>
+
+        <button [disabled]="createShoppingForm.invalid" mat-icon-button color="primary" type="sumbit">
+            <mat-icon>library_add</mat-icon>
+        </button>
+    </form>
+</mat-card>

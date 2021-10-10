@@ -1,0 +1,14 @@
+form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+button {
+    margin-left: 10px;
+}
+
+.shopping-name {
+    color: red;
+    font-weight: bold;
+}

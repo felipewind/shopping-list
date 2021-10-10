@@ -1,0 +1,21 @@
+.table-container {
+    height: 80%;
+    max-width: 100%;
+    overflow: auto;
+}
+
+.full-width-table {
+    margin-top: 10px;
+    width: 100%;   
+    table-layout: fixed;
+}
+
+.mat-column-name {
+    width: 70%;  
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mat-column-action {
+    width: 30%;    
+}

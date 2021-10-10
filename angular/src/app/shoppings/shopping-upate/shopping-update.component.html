@@ -1,0 +1,24 @@
+<mat-card>    
+    <mat-card-title>
+        Update <span class="shopping-name">{{originalShopping.shoppingName | titlecase}}</span>
+    </mat-card-title>
+    <br>
+    <form [formGroup]="updateShoppingForm" #formDirective="ngForm" (ngSubmit)="updateShopping()">        
+        <mat-form-field>
+            <input matInput formControlName="shoppingName" placeholder="Shopping list name" type="text" maxlength="30"
+                #shoppingNameInput autocomplete="off">
+            <mat-error *ngIf="updateShoppingForm.get('shoppingName')?.invalid">{{getErrorMessage('shoppingName')}}
+            </mat-error>
+            <mat-hint align="end">{{shoppingNameInput.value?.length || 0}}/30</mat-hint>
+        </mat-form-field>
+
+        <button [disabled]="updateShoppingForm.invalid" mat-icon-button color="primary" type="sumbit">
+            <mat-icon>check_circle</mat-icon>
+        </button>
+
+        <button mat-icon-button (click)="cancelUpdate()" color="accent">
+            <mat-icon>cancel</mat-icon>
+        </button>
+    
+    </form>
+</mat-card>

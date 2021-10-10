@@ -1,0 +1,9 @@
+<button mat-button [matMenuTriggerFor]="shoppingMenu">
+    {{currentShoppingName | titlecase}}
+    <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #shoppingMenu="matMenu" yPosition="below">
+    <button mat-menu-item *ngFor="let shopping of shoppings" (click)="selectShoppingName(shopping)">
+        {{shopping.shoppingName | titlecase}}
+    </button>
+</mat-menu>

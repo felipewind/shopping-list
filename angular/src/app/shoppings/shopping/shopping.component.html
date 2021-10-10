@@ -1,0 +1,5 @@
+<app-shopping-create *ngIf="!updatingShopping; else updateTemplate"></app-shopping-create>
+<ng-template #updateTemplate>
+    <app-shopping-update [originalShopping]="shoppingToUpdate" (updateDone)="updateDone($event)"></app-shopping-update>
+</ng-template>
+<app-shopping-list (updateShopping)="updateShopping($event)"></app-shopping-list>

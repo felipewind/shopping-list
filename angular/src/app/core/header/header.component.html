@@ -1,0 +1,20 @@
+<mat-toolbar color="primary" class="app-toolbar" fxLayoutAlign="space-between center">
+
+    <button mat-icon-button (click)="back()" *ngIf="isListingProducts; else leftArea">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    <ng-template #leftArea><a></a></ng-template>
+
+    <app-header-shopping *ngIf="isListingProducts; else centerArea"
+        [shoppings]="shoppings" [currentShoppingName]="shoppingName" (changeShopping)="changeShopping($event)">
+    </app-header-shopping>
+    <ng-template #centerArea>
+        <span>{{header.headerType}}</span>
+    </ng-template>
+
+    <button mat-icon-button (click)="logout()" *ngIf="userAuth; else rightArea">
+        <mat-icon>logout</mat-icon>
+    </button>
+    <ng-template #rightArea><a></a></ng-template>
+
+</mat-toolbar>
