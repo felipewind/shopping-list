@@ -29,6 +29,10 @@ You can, for instance, create one shopping list for fruits, other for cleaning p
 
 # Running locally
 
+The test versions have this username and password:
+- username `felipe`;
+- password `123`;
+
 ## From Docker Hub Images
 
 Bring up this [docker-compose](./docker-compose-docker-hub.yml)
